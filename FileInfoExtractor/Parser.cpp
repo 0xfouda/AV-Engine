@@ -26,15 +26,14 @@ string parser::parseFile(string filePath)
 	if (!f.good())
 	{
 		cout << "[-] Error parsing the given file, please check the file or the file path !!" << endl;
-		return NULL;
+		return "CORRUPTED FILE";
 	}
 	for (int i = 0; i < typesList.size(); i++)
 	{
-		if (checkRule(&f, typesList[i]));
-		{
+		if (checkRule(&f, typesList[i]) != false)
 			return typesList[i].typeName;
-		}
 	}
+	return "UNIDENTFIED";
 }
 
 bool parser::checkRule(ifstream* f,struct TypeRule r)

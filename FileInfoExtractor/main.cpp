@@ -10,7 +10,6 @@ void main()
 	string file;
 	cin >> file; 
 	cout << "[+] file type : " << p.parseFile(file) << endl;
-	cin.ignore();
 }
 
 
